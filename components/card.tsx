@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import "./card.css";
+import Image from "next/image";
 
 interface CardProps {
   rank: string;
@@ -66,7 +67,9 @@ const Card: React.FC<CardProps> = ({ rank, suit, style, className }) => {
               {suitSymbol}
             </div>
             {cardImage ? (
-              <img
+              <Image
+                width={300}
+                height={400}
                 src={cardImage}
                 alt={`${rank} of ${suit}`}
                 className="card-image"

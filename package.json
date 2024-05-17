@@ -1,12 +1,13 @@
 {
-  "name": "z",
+  "name": "talia-kart",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tauri": "tauri"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.0.4",
@@ -25,6 +26,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.5.14",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

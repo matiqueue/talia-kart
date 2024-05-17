@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./card";
 import "./card-deck.css";
+import Image from "next/image";
 
 const suits = ["hearts", "diamonds", "clubs", "spades"] as const;
 const ranks = [
@@ -32,7 +33,7 @@ const CardDeck: React.FC = () => {
     if (deckOpened && visibleCards < suits.length * ranks.length) {
       const timeout = setTimeout(() => {
         setVisibleCards(visibleCards + 1);
-      }, 100); // Ustawienie opóźnienia między kartami na 100ms
+      }, 100);
       return () => clearTimeout(timeout);
     }
   }, [deckOpened, visibleCards]);
@@ -40,12 +41,9 @@ const CardDeck: React.FC = () => {
   return (
     <div className="card-deck-container">
       {!deckOpened ? (
-        <img
-          src="../img/talia.png"
-          alt="Deck"
-          className="deck-cover"
-          onClick={handleDeckClick}
-        />
+        <div className="deck-cover" onClick={handleDeckClick}>
+          <Image src="/img/talia.png" alt="Deck" width={300} height={300} />
+        </div>
       ) : (
         <div className="card-deck">
           {suits.flatMap((suit) =>
