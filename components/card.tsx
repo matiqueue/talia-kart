@@ -5,9 +5,11 @@ import "./card.css";
 interface CardProps {
   rank: string;
   suit: "hearts" | "diamonds" | "clubs" | "spades";
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ rank, suit }) => {
+const Card: React.FC<CardProps> = ({ rank, suit, style, className }) => {
   const [flipped, setFlipped] = useState(false);
 
   const getSuitSymbol = (suit: string) => {
@@ -40,7 +42,7 @@ const Card: React.FC<CardProps> = ({ rank, suit }) => {
 
   const suitSymbol = getSuitSymbol(suit);
   const isRed = suit === "hearts" || suit === "diamonds";
-  const cardImage = getCardImage(rank.toLowerCase(), suit);
+  const cardImage = getCardImage(rank, suit);
 
   const handleCardClick = () => {
     setFlipped(!flipped);
@@ -48,8 +50,9 @@ const Card: React.FC<CardProps> = ({ rank, suit }) => {
 
   return (
     <div
-      className={`card ${flipped ? "flipped" : ""}`}
+      className={`card ${flipped ? "flipped" : ""} ${className}`}
       onClick={handleCardClick}
+      style={style}
     >
       <div className="card-content" style={{ color: isRed ? "red" : "black" }}>
         {flipped ? (
