@@ -1,0 +1,32 @@
+.card-deck-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.deck-cover {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: spread 1s ease-in-out forwards;
+}
+
+@keyframes spread {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
